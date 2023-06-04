@@ -4,10 +4,10 @@ import ExerciseImages from './ExerciseImages'
 
 const ExerciseCard = ({item}) => {
 
-    console.log(item)
+    /*console.log(item)*/
 
   return (
-      <Box>
+      <Box style={{ maxWidth: '250px' }}>
         <ExerciseImages targetMuscle={item.target.Primary} exerciseName={item.exercise_name}  />
         <Typography variant='h6'>{item.exercise_name}</Typography>
         <Box>

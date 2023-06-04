@@ -68,7 +68,7 @@ const ExerciseImages = (target) => {
   }
 
   return (
-    <img alt={target} src={imageSource} style={{ maxWidth: '300px' }} />
+    <img alt={target} src={imageSource} style={{ maxWidth: '250px' }}/>
   );
 };
 

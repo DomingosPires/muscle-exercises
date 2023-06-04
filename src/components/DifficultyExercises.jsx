@@ -1,7 +1,7 @@
 import { Box, Pagination, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { exerciseData, fetchData } from '../utils/fetchData';
+import { exerciseAttributeData, exerciseData, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 
 const DifficultyExercises = () => {
@@ -9,6 +9,9 @@ const DifficultyExercises = () => {
     const { difficulty } = useParams();
 
     const [difficultyExcersises, setDifficultyExcersises] = useState([]);
+    const [exerciseAttributes, setExerciseAttributes] = useState([
+        
+    ]);
 
     useEffect(() => {
         const fetchexercisesDifficultyData = async () => {
@@ -23,25 +26,62 @@ const DifficultyExercises = () => {
         }
         
         fetchexercisesDifficultyData()
+
+        const fetchExerciseAttributes = async () => {
+            const exerciseAttributesData = await fetchData(`https://musclewiki.p.rapidapi.com/exercises/attributes`, exerciseAttributeData);
+            
+            setExerciseAttributes(exerciseAttributesData);
+        }
+        
+        fetchExerciseAttributes()
+
+        
         
     }, [])
 
-    useEffect(() => {
+    console.log(exerciseAttributes)
+    /*useEffect(() => {
         console.log(difficultyExcersises);
-      }, [difficultyExcersises]);
+    }, [difficultyExcersises]);*/
+
+
+    const itemsPerPage = 12; // Number of exercises to display per page
+
+    const [page, setPage] = useState(1);
+
+    // Calculate the starting and ending index for the exercises to display on the current page
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    // Get the exercises for the current page
+    const exercisesToShow = difficultyExcersises.slice(startIndex, endIndex);
+
+    // Handle page change
+    const handlePageChange = (event, newPage) => {
+        setPage(newPage);
+    };
 
     return (
-        <Box py='50px'>
+        <Stack className='container' py='50px' m='0 auto'>
             <Typography variant='h3' textAlign='center'>
-                Exercises for <span style={{fontWeight:'600', color:'var(--heading-color)'}}>{difficulty.toUpperCase()}</span>
+                Exercises for <span style={{ fontWeight: '600', color: 'var(--heading-color)' }}>{difficulty.toUpperCase()}</span>
             </Typography>
-            <Stack direction='row' flexWrap='wrap' gap='70px' justifyContent='center' py='50px' >
-                {difficultyExcersises.map((item, index) => (
-                    <ExerciseCard key={index} item={item} />
+
+            <Stack direction='row' flexWrap='wrap' gap='70px' justifyContent='center' py='50px'>
+                {exercisesToShow.map((item, index) => (
+                <ExerciseCard key={index} item={item} />
                 ))}
             </Stack>
-            <Pagination  variant="outlined" color="primary" count={12} />
-        </Box>
+            <Box display='flex' justifyContent='center'>
+                <Pagination
+                variant='outlined'
+                color='primary'
+                count={Math.ceil(difficultyExcersises.length / itemsPerPage)}
+                page={page}
+                onChange={handlePageChange}
+                />
+            </Box>
+        </Stack>
     )
 }
 

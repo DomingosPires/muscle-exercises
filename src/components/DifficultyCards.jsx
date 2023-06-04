@@ -19,12 +19,12 @@ const DifficultyCards = () => {
     }, [])
   
   return (
-    <Stack py='50px' sx={{flexDirection:{xs:'column', sm:'row'}, maxWidth:{xs:'100%', sm:'1300px'}}} m='0 auto'>
-      {exercisesDifficulty.map((difficulty,index) => (
-        <Box sx={{width:{xs:'100%', sm:'33%'}, cursor:'pointer'}} m='30px' key={index} textAlign='center' position='relative' className='difficultyCard' >
+    <Stack py='50px' sx={{ flexDirection: { xs: 'column', sm: 'row' }, maxWidth: { xs: '100%', sm: '1300px' } }} m='0 auto'>
+      {exercisesDifficulty.map((difficulty, index) => (
+        <Box sx={{ width: { xs: '100%', sm: '33%' }, cursor: 'pointer', overflow: 'hidden' }} m='30px' key={index} textAlign='center' position='relative' className='difficultyCard'>
           <Link to={`/difficulty/${difficulty.toLowerCase()}`} style={{ textDecoration: 'none' }}>
-            <img width='100%' src={GymPhoto}/>
-            <Typography className='difficulty' fontSize='30px' style={{color: 'var(--heading-color)', fontWeight:'600', backgroundColor:'#41644A70'}}  >
+            <img style={{ maxWidth: '100%', width: '100%', height: 'auto' }} src={GymPhoto} alt={`Gym ${difficulty}`} />
+            <Typography className='difficulty' fontSize='30px' style={{ color: 'var(--heading-color)', fontWeight: '600', backgroundColor: '#41644A70' }}>
               {difficulty}
             </Typography>
           </Link>
