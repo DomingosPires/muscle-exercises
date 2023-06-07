@@ -26,7 +26,66 @@
 .container{
   max-width: 1300px;
 }
-  
+
+.menu-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.react-horizontal-scrolling-menu--scroll-container {
+  display: flex;
+  height: max-content;
+  overflow: hidden;
+  position: relative;
+  width: 100%
+}
+
+.react-horizontal-scrolling-menu--inner-wrapper {
+  display: flex;
+  overflow-y: hidden;
+}
+
+.react-horizontal-scrolling-menu--scroll-container.rtl {
+  direction: rtl
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+  display: flex;
+  flex-direction: row 
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  padding: 10px;
+  background-color: #f1f1f1;
+  margin-right: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999999;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
 
 
 

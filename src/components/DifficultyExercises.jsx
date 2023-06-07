@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { exerciseAttributeData, exerciseData, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
+import HorizontalTargetMenu from './HorizontalTargetMenu';
 
 const DifficultyExercises = () => {
 
@@ -25,24 +26,22 @@ const DifficultyExercises = () => {
             setDifficultyExcersises(beginnerExercises);
         }
         
-        fetchexercisesDifficultyData()
-
         const fetchExerciseAttributes = async () => {
             const exerciseAttributesData = await fetchData(`https://musclewiki.p.rapidapi.com/exercises/attributes`, exerciseAttributeData);
             
             setExerciseAttributes(exerciseAttributesData);
         }
         
+        fetchexercisesDifficultyData()
         fetchExerciseAttributes()
 
         
-        
     }, [])
 
-    console.log(exerciseAttributes)
     /*useEffect(() => {
-        console.log(difficultyExcersises);
-    }, [difficultyExcersises]);*/
+        console.log("exerciseAttributes");
+        console.log(exerciseAttributes);
+    }, [exerciseAttributes]);*/
 
 
     const itemsPerPage = 12; // Number of exercises to display per page
@@ -66,10 +65,14 @@ const DifficultyExercises = () => {
             <Typography variant='h3' textAlign='center'>
                 Exercises for <span style={{ fontWeight: '600', color: 'var(--heading-color)' }}>{difficulty.toUpperCase()}</span>
             </Typography>
+            
+            {exerciseAttributes && exerciseAttributes["muscles"] && Array.isArray(exerciseAttributes["muscles"]) && (
+                <HorizontalTargetMenu target={exerciseAttributes["muscles"]} />
+            )}
 
             <Stack direction='row' flexWrap='wrap' gap='70px' justifyContent='center' py='50px'>
                 {exercisesToShow.map((item, index) => (
-                <ExerciseCard key={index} item={item} />
+                    <ExerciseCard key={index} item={item} />
                 ))}
             </Stack>
             <Box display='flex' justifyContent='center'>

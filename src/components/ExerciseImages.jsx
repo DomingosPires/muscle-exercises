@@ -15,9 +15,11 @@ import img_traps from '../assets/images/traps.png';
 import img_triceps from '../assets/images/tricep.png';
 
 const ExerciseImages = (target) => {
+  /*console.log("target")
+  console.log(target)*/
   let imageSource;
 
-  switch (target.targetMuscle[0]) {
+  switch (target.targetMuscle) {
     case 'Abdominals':
       imageSource = img_abdominals;
       break;
@@ -68,7 +70,7 @@ const ExerciseImages = (target) => {
   }
 
   return (
-    <img alt={target} src={imageSource} style={{ maxWidth: '250px' }}/>
+    <img alt={target.targetMuscle[0]} src={imageSource} style={{ maxWidth: '250px', backgroundColor:'#d1d1d1', padding:'20px' }}/>
   );
 };
 
