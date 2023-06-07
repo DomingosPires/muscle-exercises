@@ -4,15 +4,18 @@ import { useParams } from 'react-router-dom';
 import { exerciseAttributeData, exerciseData, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 import HorizontalTargetMenu from './HorizontalTargetMenu';
+import Breadcrumb from './Breadcrumb';
+
+
 
 const DifficultyExercises = () => {
 
     const { difficulty } = useParams();
 
     const [difficultyExcersises, setDifficultyExcersises] = useState([]);
-    const [exerciseAttributes, setExerciseAttributes] = useState([
-        
-    ]);
+    const [exerciseAttributes, setExerciseAttributes] = useState([]);
+
+    const links = [{ url: '#', label: difficulty }];
 
     useEffect(() => {
         const fetchexercisesDifficultyData = async () => {
@@ -62,6 +65,7 @@ const DifficultyExercises = () => {
 
     return (
         <Stack className='container' py='50px' m='0 auto'>
+            <Breadcrumb links={links}/>
             <Typography variant='h3' textAlign='center'>
                 Exercises for <span style={{ fontWeight: '600', color: 'var(--heading-color)' }}>{difficulty.toUpperCase()}</span>
             </Typography>

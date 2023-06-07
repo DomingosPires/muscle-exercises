@@ -4,7 +4,7 @@ import CategoryImages from './CategoryImages'
 
 const ExerciseCard = ({item}) => {
 
-  console.log(item)
+  /*console.log(item)*/
 
   return (
       <Box style={{ maxWidth: '250px' }} position='relative'>

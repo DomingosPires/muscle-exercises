@@ -9,7 +9,7 @@ const Arrow = ({ onClick, direction }) => {
 
   return (
     <div className={`arrow ${direction}`} onClick={handleClick}>
-      {direction === 'left' ? <img src={ArrowLeft} alt="Left Arrow" /> : <img src={ArrowRight} alt="Right Arrow" />}
+      {direction === 'left' ? <img src={ArrowLeft} alt="Left Arrow" style={{maxWidth:'25px'}} /> : <img src={ArrowRight} alt="Right Arrow"style={{maxWidth:'25px'}} />}
     </div>
   );
 };

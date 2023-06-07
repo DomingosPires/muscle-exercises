@@ -70,7 +70,7 @@ const ExerciseImages = (target) => {
   }
 
   return (
-    <img alt={target.targetMuscle[0]} src={imageSource} style={{ maxWidth: '250px', backgroundColor:'#d1d1d1', padding:'20px' }}/>
+    <img alt={target.targetMuscle[0]} src={imageSource} style={{ maxWidth: '100px', backgroundColor:'#d1d1d1', padding:'20px', borderRadius:'10px' }}/>
   );
 };
 
