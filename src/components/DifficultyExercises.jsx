@@ -6,8 +6,6 @@ import ExerciseCard from './ExerciseCard';
 import HorizontalTargetMenu from './HorizontalTargetMenu';
 import Breadcrumb from './Breadcrumb';
 
-
-
 const DifficultyExercises = () => {
 
     const { difficulty } = useParams();

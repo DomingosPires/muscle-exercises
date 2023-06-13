@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import React from 'react'
 import DifficultyCards from '../components/DifficultyCards';
 import Banner from '../components/Banner';
+import BodyMass from '../components/BodyMass';
 
 const Home = () => {
 
@@ -13,6 +14,7 @@ const Home = () => {
           <DifficultyCards />
         </Box>
       </Box>
+      <BodyMass/>
     </div>
   )
 }
