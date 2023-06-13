@@ -18,14 +18,12 @@ const HorizontalTargetMenu = (target) => {
     return <Arrow onClick={scrollNext} direction="right" />;
   };
 
-  
-
   return (
     <div className="menu-container" style={{ padding: '40px 0px' }}>
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
           {muscles.target.map((item) => (
             <div key={item} className="menu-item">
-              <Link to={`muscle/${item.toLowerCase()}`} underline="hover" style={{ cursor: 'pointer', color: 'var(--heading-color)' }}>
+              <Link to={`muscle/${item.toLowerCase()}`} style={{textDecoration:'none', cursor: 'pointer', color: 'var(--heading-color)' }}>
                 <ExerciseImages targetMuscle={item} style={{ display: 'block' }} />
                 <Typography variant="h6" textAlign="center" style={{ color: 'var(--heading-color)', marginTop: '8px' }}>{item}</Typography>
               </Link>

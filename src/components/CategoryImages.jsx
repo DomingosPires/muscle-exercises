@@ -56,7 +56,7 @@ const CategoryImages = (category) => {
     
   
     return (
-        <img alt={category.category} src={imageSource} style={{ maxWidth: '290px', backgroundColor:'#d1d1d1'}}/>
+        <img alt={category.category} src={imageSource} style={{ maxWidth: '290px', backgroundColor:'#d1d1d1', aspectRatio:'3/4'}}/>
     );
 }
 

@@ -74,7 +74,7 @@ const DifficultyExercises = () => {
                 <HorizontalTargetMenu target={exerciseAttributes["muscles"]} />
             )}
 
-            <Stack direction='row' flexWrap='wrap' gap='70px' justifyContent='center' py='50px'>
+            <Stack direction='row' flexWrap='wrap' gap='45px' justifyContent='center' py='50px'>
                 {exercisesToShow.map((item, index) => (
                     <ExerciseCard key={index} item={item} />
                 ))}
