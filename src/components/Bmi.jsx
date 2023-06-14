@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BmiVelocimeter = ({ bmi,bodyStatus }) => {
+const BmiVelocimeter = ({ bmr, bmi,bodyStatus }) => {
   const viewBoxSize = 200;
   const radius = viewBoxSize / 2;
   const circumference = 2 * Math.PI * radius;
@@ -62,6 +62,16 @@ const BmiVelocimeter = ({ bmi,bodyStatus }) => {
         fill="#333333"
       >
         BMI: {bmi}
+      </text>
+      <text
+        x={radius}
+        y={radius - 20}
+        textAnchor="middle"
+        fontSize="18"
+        fontWeight="bold"
+        fill="#333333"
+      >
+        BMR: {parseInt(bmr)}
       </text>
       <text
         x={radius}

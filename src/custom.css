@@ -86,6 +86,26 @@
   right: 0;
 }
 
+#calories_table thead{
+  background-color:var(--dark-color);
+  color:#fff;  
+}
+
+#calories_table thead th{
+  padding: 10px 20px;
+}
+
+#calories_table tbody tr:nth-child(2n){
+  background-color: var(--text-color);
+}
+
+#calories_table tbody td{
+  padding: 5px 10px;
+  text-align: center;
+}
+
+
+
 
 
 
