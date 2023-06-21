@@ -104,6 +104,11 @@
   text-align: center;
 }
 
+.calculate_results .MuiCardContent-root{
+  padding: 5px 10px;
+  padding-bottom: 0 !important;
+}
+
 
 
 

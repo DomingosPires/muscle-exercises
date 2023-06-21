@@ -15,6 +15,7 @@ const Home = () => {
         </Box>
       </Box>
       <BodyMass/>
+      
     </div>
   )
 }

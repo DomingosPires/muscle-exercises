@@ -1,6 +1,8 @@
+import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
 import React from 'react';
 
-const BmiVelocimeter = ({ bmr, bmi,bodyStatus }) => {
+const BmiVelocimeter = ({  bmr, bmi, bodyStatus, idealWeight }) => {
+  
   const viewBoxSize = 200;
   const radius = viewBoxSize / 2;
   const circumference = 2 * Math.PI * radius;
@@ -27,64 +29,86 @@ const BmiVelocimeter = ({ bmr, bmi,bodyStatus }) => {
     progressColor = '#750000';
   }
 
-
   return (
-    <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width="300" height="300">
-      {/* Background Circle */}
-      <circle
-        cx={radius}
-        cy={radius}
-        r={radius-20}
-        fill="none"
-        stroke="#e6e6e6"
-        strokeWidth="10"
-      />
+    <Stack sx={{flexDirection:{sm:'column', md:'row'}}} className='calculate_results'>
+      <Box>
+        <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width="300" height="300">
+          {/* Background Circle */}
+          <circle
+            cx={radius}
+            cy={radius}
+            r={radius-20}
+            fill="none"
+            stroke="#e6e6e6"
+            strokeWidth="10"
+          />
 
-      {/* Progress Circle */}
-      <circle
-        cx={radius}
-        cy={radius}
-        r={radius-20}
-        fill="none"
-        stroke={progressColor}
-        strokeWidth="10"
-        strokeDasharray={`${normalizedBmi} ${remainingCircumference}`}
-        transform={`rotate(-90 ${radius} ${radius})`}
-      />
+          {/* Progress Circle */}
+          <circle
+            cx={radius}
+            cy={radius}
+            r={radius-20}
+            fill="none"
+            stroke={progressColor}
+            strokeWidth="10"
+            strokeDasharray={`${normalizedBmi} ${remainingCircumference}`}
+            transform={`rotate(-90 ${radius} ${radius})`}
+          />
 
-      {/* Text Labels */}
-      <text
-        x={radius}
-        y={radius + 10}
-        textAnchor="middle"
-        fontSize="18"
-        fontWeight="bold"
-        fill="#333333"
-      >
-        BMI: {bmi}
-      </text>
-      <text
-        x={radius}
-        y={radius - 20}
-        textAnchor="middle"
-        fontSize="18"
-        fontWeight="bold"
-        fill="#333333"
-      >
-        BMR: {parseInt(bmr)}
-      </text>
-      <text
-        x={radius}
-        y={radius + 40}
-        textAnchor="middle"
-        fontSize="14"
-        fill="#333333"
-      >
-        {bodyStatus}
-      </text>
+          {/* Text Labels */}
+          <text
+            x={radius}
+            y={radius + 5}
+            textAnchor="middle"
+            fontSize="15"
+            fill="#333333"
+          >
+            {bodyStatus}
+          </text>
+          
+        </svg>
+      </Box>
+      <Stack spacing={2} py={4} >
+        <Card sx={{boxShadow:'none'}}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="600">
+              BMI: {bmi}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              Body Mass Index
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card sx={{boxShadow:'none'}}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="600">
+              BMR: {bmr === 'N/A' ? bmr : parseInt(bmr)}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              Basal Metabolic Rate
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card sx={{boxShadow:'none'}}>
+          <CardContent>
+            {idealWeight.data && idealWeight.data.Devine && (
+              <Typography variant="h6" fontWeight="600">
+                Ideal Weight: {parseInt(idealWeight.data.Devine)}Kg
+              </Typography>
+            )}
+            {idealWeight.data && idealWeight.data.Miller && idealWeight.data.Hamwi &&(
+              <Typography variant="body2" color="textSecondary">
+                Ideal Weight range {parseInt(idealWeight.data.Miller)}-{parseInt(idealWeight.data.Hamwi)}Kg
+              </Typography>
+            )}
+          </CardContent>
+        </Card>
+      </Stack>
       
-    </svg>
+    </Stack>
+    
   );
 };
 
 export default BmiVelocimeter;
+/**/

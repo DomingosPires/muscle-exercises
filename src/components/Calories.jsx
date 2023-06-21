@@ -1,13 +1,13 @@
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import React from 'react'
 
 const Calories = ({ calorie }) => {
     const goals = calorie.data.goals;
 
-    console.log(goals)
+    //console.log(goals)
   
     return (
-      <Stack>
+      <Stack alignItems='center'>
         <Box>
           <table id='calories_table'>
             <thead>
