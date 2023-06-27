@@ -1,7 +1,7 @@
 import { Box, Pagination, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { exerciseAttributeData, exerciseData, fetchData } from '../utils/fetchData';
+import { exerciseData, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 import HorizontalTargetMenu from './HorizontalTargetMenu';
 import Breadcrumb from './Breadcrumb';
@@ -28,7 +28,7 @@ const DifficultyExercises = () => {
         }
         
         const fetchExerciseAttributes = async () => {
-            const exerciseAttributesData = await fetchData(`https://musclewiki.p.rapidapi.com/exercises/attributes`, exerciseAttributeData);
+            const exerciseAttributesData = await fetchData(`https://musclewiki.p.rapidapi.com/exercises/attributes`, exerciseData);
             
             setExerciseAttributes(exerciseAttributesData);
         }

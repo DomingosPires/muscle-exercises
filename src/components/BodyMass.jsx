@@ -3,7 +3,6 @@ import { bodyMassData, fetchData } from '../utils/fetchData';
 import { Box, Button, Container, FormControl, FormControlLabel, FormLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, Stack, TextField, Typography } from '@mui/material';
 import BmiVelocimeter from './Bmi';
 import Calories from './Calories';
-import ExerciseVideos from './ExerciseVideos';
 
 const BodyMass = () => {
 
@@ -122,9 +121,6 @@ const BodyMass = () => {
                         <Calories calorie={calorie}/>
                     : ''}
                 </Box>
-            </Stack>
-            <Stack>
-                <ExerciseVideos />
             </Stack>
         </Container>
     )

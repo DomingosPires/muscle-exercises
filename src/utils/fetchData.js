@@ -6,14 +6,6 @@ export const exerciseData = {
     }
 };
 
-export const exerciseAttributeData = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': 'c81efb59d7msh199ce1d649db2a8p17b6eajsnad4dd0c527e8',
-        'X-RapidAPI-Host': 'musclewiki.p.rapidapi.com'
-    }
-};
-
 export const bodyMassData = {
     method: 'GET',
     headers: {
@@ -22,17 +14,11 @@ export const bodyMassData = {
     }
 };
 
-
-export const youtubeOptions = {
+export const youtubeData = {
   method: 'GET',
-  params: {
-    part: 'snippet,id',
-    maxResults: '12',
-    order: 'date'
-  },
   headers: {
     'X-RapidAPI-Key': 'c81efb59d7msh199ce1d649db2a8p17b6eajsnad4dd0c527e8',
-    'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
+    'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
   }
 };
 

@@ -109,6 +109,39 @@
   padding-bottom: 0 !important;
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.search-icon {
+  font-size: 25px;
+  fill: var(--heading-color);
+  cursor: pointer;
+  padding-left: 20px;
+}
+
+.search-icon.active {
+  color: var(--active-icon-color);
+}
+
+#search-input{
+  border: none;
+  border-bottom: 1px solid var(--dark-color);
+  outline: none;
+  padding: 15px;
+  font-size: 20px;
+  transition: border-bottom-color 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
 
 
 

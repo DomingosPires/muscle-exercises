@@ -3,6 +3,7 @@ import React from 'react'
 import DifficultyCards from '../components/DifficultyCards';
 import Banner from '../components/Banner';
 import BodyMass from '../components/BodyMass';
+import ExerciseVideos from '../components/ExerciseVideos';
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
         </Box>
       </Box>
       <BodyMass/>
+      <ExerciseVideos />
       
     </div>
   )
